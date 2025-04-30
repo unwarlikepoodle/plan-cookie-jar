@@ -12,21 +12,17 @@
 	});
 </script>
 
-<div
-	class="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-purple-500 to-green-500 text-white"
->
-	{#if loading}
-		<p class="animate-pulse text-2xl font-bold">Loading...</p>
-	{:else}
-		<ul class="w-full max-w-md rounded-lg bg-white p-4 text-gray-800 shadow-lg">
-			{#each groups as group}
-				<li class="border-b py-2 transition last:border-none hover:bg-purple-100">
-					<a
-						href={`/groups/${group.id}`}
-						class="text-lg font-semibold text-purple-600 hover:underline">{group.name}</a
-					>
-				</li>
-			{/each}
-		</ul>
-	{/if}
-</div>
+{#if loading}
+	<p class="animate-pulse text-2xl font-bold">Loading...</p>
+{:else}
+	<ul class="w-full max-w-md rounded-lg bg-white p-4 text-gray-800 shadow-lg">
+		{#each groups as group}
+			<li class="border-b py-2 transition last:border-none hover:bg-purple-100">
+				<a
+					href={`/groups/${group.id}`}
+					class="text-lg font-semibold text-purple-600 hover:underline">{group.name}</a
+				>
+			</li>
+		{/each}
+	</ul>
+{/if}

@@ -14,7 +14,7 @@
 </script>
 
 {#if loading}
-	<p>Loading...</p>
+	<p class="animate-pulse text-2xl font-bold text-purple-600">Loading...</p>
 {:else}
 	<ul>
 		{#each plans as plan}
