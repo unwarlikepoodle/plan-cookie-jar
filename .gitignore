@@ -21,3 +21,7 @@ yarn-error.log*
 
 # MacOS
 .DS_Store
+
+# Express.js specific
+coverage/
+.nyc_output/
