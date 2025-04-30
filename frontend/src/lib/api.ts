@@ -1,9 +1,11 @@
+import type { Group } from './types';
+
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export async function getGroups() {
   const res = await fetch(`${API_BASE}/groups`);
   if (!res.ok) throw new Error('Failed to fetch groups');
-  return await res.json();
+  return await res.json() as Group[];
 }
 
 export async function getGroupPlans(groupId: string) {
