@@ -3,7 +3,7 @@
   import { getGroupPlans } from '$lib/api';
   import { page } from '$app/stores';
 
-  let plans = [];
+  let plans: any[] = [];
   let loading = true;
 
   onMount(async () => {
