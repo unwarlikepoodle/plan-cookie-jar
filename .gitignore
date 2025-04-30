@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+
+# SvelteKit build output
+.svelte-kit/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# MacOS
+.DS_Store
