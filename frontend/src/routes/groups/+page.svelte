@@ -12,14 +12,19 @@
 	});
 </script>
 
-<div class="min-h-screen bg-gradient-to-b from-purple-500 to-green-500 text-white flex flex-col items-center justify-center">
+<div
+	class="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-purple-500 to-green-500 text-white"
+>
 	{#if loading}
-		<p class="text-2xl font-bold animate-pulse">Loading...</p>
+		<p class="animate-pulse text-2xl font-bold">Loading...</p>
 	{:else}
-		<ul class="w-full max-w-md bg-white rounded-lg shadow-lg p-4 text-gray-800">
+		<ul class="w-full max-w-md rounded-lg bg-white p-4 text-gray-800 shadow-lg">
 			{#each groups as group}
-				<li class="border-b last:border-none py-2 hover:bg-purple-100 transition">
-					<a href={`/groups/${group.id}`} class="text-lg font-semibold text-purple-600 hover:underline">{group.name}</a>
+				<li class="border-b py-2 transition last:border-none hover:bg-purple-100">
+					<a
+						href={`/groups/${group.id}`}
+						class="text-lg font-semibold text-purple-600 hover:underline">{group.name}</a
+					>
 				</li>
 			{/each}
 		</ul>
