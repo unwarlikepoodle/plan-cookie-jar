@@ -1,0 +1,81 @@
+// Prisma schema definition
+// This schema defines the database structure for the app
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  memberships GroupMembership[]
+  plans     Plan[]
+  comments  Comment[]
+  ratings   Rating[]
+}
+
+model Group {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  memberships GroupMembership[]
+  plans       Plan[]
+}
+
+model GroupMembership {
+  userId String
+  groupId String
+  role   String   @default("member")
+
+  user  User  @relation(fields: [userId], references: [id])
+  group Group @relation(fields: [groupId], references: [id])
+
+  @@id([userId, groupId])
+}
+
+model Plan {
+  id           String   @id @default(uuid())
+  groupId      String
+  createdById  String
+  title        String
+  description  String?
+  location     String?
+  proposedTime DateTime?
+  status       String   @default("queued")
+  createdAt    DateTime @default(now())
+
+  group   Group   @relation(fields: [groupId], references: [id])
+  createdBy User  @relation(fields: [createdById], references: [id])
+  comments Comment[]
+  ratings  Rating[]
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  planId    String
+  userId    String?
+  content   String
+  createdAt DateTime @default(now())
+
+  plan Plan @relation(fields: [planId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
+}
+
+model Rating {
+  planId String
+  userId String
+  rating Int
+
+  plan Plan @relation(fields: [planId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+
+  @@id([planId, userId])
+}
