@@ -2,9 +2,9 @@
 
 ## Phase 1: Initial Setup
 - [x] Initialize the SvelteKit frontend.
-- [ ] Set up the backend with FastAPI or Express.js.
-- [ ] Configure PostgreSQL database with schema for users, groups, plans, comments, and ratings.
-- [ ] Create Docker Compose file for local development and deployment.
+- [x] Set up the backend with Express.js.
+- [x] Configure PostgreSQL database with schema for users, groups, plans, comments, and ratings.
+- [x] Create Docker Compose file for local development and deployment.
 
 ## Phase 2: Core Features
 - [ ] Implement user authentication (e.g., login, signup, session management).
